@@ -3,20 +3,48 @@ import ContactItem from "../contackt/contakt";
 import Message from "../message/message";
 import { Contacts, Messages, Wrap } from "./styled";
 
+cd const dataContacts = [
+  {
+    id: 1,
+    name: "Caser",
+  }, {
+    id: 2,
+    name: "Piter",
+  }, {
+    id: 3,
+    name: "Andrey",
+  }, {
+    id: 4,
+    name: "Nikol",
+  }, {
+    id: 5,
+    name: "Batman",
+  }, {
+    name: "Пёс",
+    id: 6,
+  }
+];
+
+const dataMessages = [
+  { text: "Hallo" },
+  { text: "good morning" },
+  { text: "i`m fine" },
+  { text: "gdfsfdhb" },
+  { text: "654vyhtr" }
+]
+
+const NewContacts = dataContacts.map((item) => { return (<ContactItem name={item.name} id={item.id} />) });
+
+const NewMessages = dataMessages.map(item => { return <Message text={item.text} /> })
+
 const DialogPage = () => {
   return (
     <Wrap>
       <Contacts >
-        <ContactItem name="Caser" id="1" />
-        <ContactItem name="Piter" id="2" />
-        <ContactItem name="Andrey" id="3" />
-        <ContactItem name="Nikol" id="4" />
-        <ContactItem name="Batman" id="5" />
+        {NewContacts}
       </Contacts>
       <Messages>
-        <Message text="Hallo"></Message>
-        <Message text="good morning"></Message>
-        <Message text="i`m fine"></Message>
+        {NewMessages}
       </Messages>
     </Wrap >
 
