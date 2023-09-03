@@ -3,7 +3,7 @@ import ContactItem from "../contackt/contakt";
 import Message from "../message/message";
 import { Contacts, Messages, Wrap } from "./styled";
 
-cd const dataContacts = [
+const dataContacts = [
   {
     id: 1,
     name: "Caser",
@@ -25,19 +25,20 @@ cd const dataContacts = [
   }
 ];
 
-const dataMessages = [
-  { text: "Hallo" },
-  { text: "good morning" },
-  { text: "i`m fine" },
-  { text: "gdfsfdhb" },
-  { text: "654vyhtr" }
-]
+// const dataMessages = [
+//   { text: "Hallo" },
+//   { text: "good morning" },
+//   { text: "i`m fine" },
+//   { text: "gdfsfdhb" },
+//   { text: "654vyhtr" }
+// ]
 
-const NewContacts = dataContacts.map((item) => { return (<ContactItem name={item.name} id={item.id} />) });
 
-const NewMessages = dataMessages.map(item => { return <Message text={item.text} /> })
 
-const DialogPage = () => {
+const DialogPage = (props) => {
+  const NewContacts = dataContacts.map((item) => { return (<ContactItem name={item.name} id={item.id} />) });
+  const NewMessages = props.dataMessages.map(item => { return <Message text={item.text} /> })
+
   return (
     <Wrap>
       <Contacts >

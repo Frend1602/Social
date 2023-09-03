@@ -7,14 +7,15 @@ import DialogPage from './components/dialog-page/dialog-page';
 import MainPage from './components/main-page/main-page';
 import NewPage from './components/news-page/news-page';
 
-function App() {
+function App(props) {
+
   return (
     <BrowserRouter>
       <div className='wrapper'>
         <Header />
         <Nav />
         <Routes>
-          <Route path="/main-page" element={<MainPage />} />
+          <Route path="/main-page" element={< MainPage dataPost={props.dataPosts} />} />
           <Route path="/dialog-page" element={<DialogPage />} />
           <Route path="/news-page" element={<NewPage />} />
 
