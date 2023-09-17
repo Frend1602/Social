@@ -8,15 +8,14 @@ import MainPage from './components/main-page/main-page';
 import NewPage from './components/news-page/news-page';
 
 function App(props) {
-
   return (
     <BrowserRouter>
       <div className='wrapper'>
         <Header />
         <Nav />
         <Routes>
-          <Route path="/main-page" element={< MainPage dataPost={props.dataPosts} />} />
-          <Route path="/dialog-page" element={<DialogPage />} />
+          <Route path="/main-page" element={< MainPage data={props.data} dispatch={props.dispatch} />} />
+          <Route path="/dialog-page" element={<DialogPage data={props.data} dispatch={props.dispatch} />} />
           <Route path="/news-page" element={<NewPage />} />
 
         </Routes>

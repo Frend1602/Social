@@ -1,17 +1,23 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { dataPosts } from './moks/data-post';
+import store from './moks/data';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App dataPosts={dataPosts} />
-  </React.StrictMode>
-);
+const renderTree = () => {
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App data={store.getState()} dispatch={store.dispatch.bind(store)} />
+    </React.StrictMode>
+  );
+}
+
+renderTree();
+store.subscribe(renderTree);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
